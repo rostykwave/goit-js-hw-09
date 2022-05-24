@@ -21,15 +21,15 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-      console.log('onClose: ',selectedDates[0]);
+      console.log('onClose: ', selectedDates[0]);
+      
+
       ///додано
       selectedTime = selectedDates[0].getTime();
        const currentTime = Date.now();
 
-
       if (selectedTime < currentTime) {
-        //   alert("Please choose a date in the future");
-          Notify.warning('Please choose a date in the future');
+          Notify.failure('Please choose a date in the future');
           refs.start.setAttribute('disabled', true);
       } else {
           refs.start.removeAttribute('disabled');        
@@ -49,7 +49,6 @@ refs.start.addEventListener('click', onStartClick)
 ////Функції
 function onStartClick(){
     const timerId = setInterval(setInterface, 1000);
-    // refs.start.setAttribute('disabled', true);
     this.setAttribute('disabled', true);
 }
 
@@ -73,6 +72,7 @@ function setInterface() {
     
    ////Перевірка, яка не дозволяє переходити на від'ємні значення відліку часу
     if (timeDelta >= 0) {
+        ////вивід форматованих даних
         refs.days.textContent = addLeadingZero(days);
         refs.hours.textContent = addLeadingZero(hours);
         refs.minutes.textContent = addLeadingZero(minutes);

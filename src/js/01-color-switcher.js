@@ -7,7 +7,7 @@ const refs = {
 refs.start.addEventListener('click', onStartClick);
 refs.stop.addEventListener('click', onStopClick);
 
-//встановлюємо змінну в загальному полі видимості, зоб можна було зупинити таймер за допомогою іншої функції
+//встановлюємо змінну в загальному полі видимості, Щоб можна було зупинити таймер за допомогою іншої функції
 let timerId = null;
 
 
